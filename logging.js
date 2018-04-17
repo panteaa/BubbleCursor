@@ -73,7 +73,7 @@ function logEvent(event, customName, customInfo) {
   }
   if (ENABLE_NETWORK_LOGGING) {
       if(name == 'log')
-        sendNetworkLog(uid, time, name, info, LOG_VERSION);
+        sendNetworkLog(uid, time, name, infoObj, LOG_VERSION);
   }
 }
 
@@ -82,7 +82,7 @@ if (ENABLE_NETWORK_LOGGING) {
 }
 })();
 
-function sendNetworkLog(uid, time, name, info) {
+function sendNetworkLog(uid, time, name, infoObj) {
     var formid = "e/1FAIpQLSeQKTQ9Ftrvm-wOO85Zz6QWB3aYYwzCbt9GQVf6BuQP1GNq7w";
     var data = {"entry.232449398": uid, "entry.2000759014": time, "entry.942551297": name, "entry.1754656750": JSON.stringify(infoObj["cursorType"]), "entry.1912923506": JSON.stringify(infoObj["Block"]) , "entry.1891194768": JSON.stringify(infoObj["Trial"]) , "entry.5712609": JSON.stringify(infoObj["Target"]) , "entry.1982079988": JSON.stringify(infoObj["Amplitude"]), "entry.475157168": JSON.stringify(infoObj["R"]), "entry.1806843383": JSON.stringify(infoObj["D"]), "entry.114811808": JSON.stringify(infoObj["time"]), "entry.1053423942": JSON.stringify(infoObj["errors"])};
     var params = [];
