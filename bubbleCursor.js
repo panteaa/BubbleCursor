@@ -115,7 +115,7 @@ $(document).ready(function() {
         $('.startExperiment').remove();
         $('.titleExperiment').remove();
         $('.instructionExperiment').remove();
-        $("<div>").addClass('infoBar titleText title').appendTo($('.homeExperiment')).text('please start but clicking on red circle');
+        $("<div>").addClass('infoBar titleText title').appendTo($('.homeExperiment')).text('please start by clicking on red circle');
         $('.homeExperiment').css({"flex-flow": "row nowrap"});
         document.body.style.cursor = "crosshair";
         documentWidth = $(window).width();
