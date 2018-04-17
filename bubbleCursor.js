@@ -72,7 +72,7 @@ function newBlock() {
             if (circle.classList.contains('correct') && mouseMoved) {
                 endTime = new Date().getTime();
                 var time = endTime - startTime;
-                $(this).trigger('log', ['timeEvent', {cursorType: cursorType, Block: Block, Trial: Trial, Target: Target, Amplitude: distance, width: width[parameter[Trial - 1].(widthIndex+1)], R: Ratio[parameter[Trial - 1].ratioIndex], D:Density[parameter[Trial - 1].densityIndex], time: time, errors: incorrectCount}]);
+                $(this).trigger('log', ['timeEvent', {cursorType: cursorType, Block: Block, Trial: Trial, Target: Target, Amplitude: distance, width: width[parameter[Trial - 1].widthIndex], R: Ratio[parameter[Trial - 1].ratioIndex], D:Density[parameter[Trial - 1].densityIndex], time: time, errors: incorrectCount}]);
                 startTime = endTime;
                 incorrectCount = 0;
                 newTarget();
@@ -160,7 +160,7 @@ function createCircle(circleType, width, height, left, top) {
             else if(circleType == "targetCircle"){
                 endTime = new Date().getTime();
                 var time = endTime - startTime;
-                $(this).trigger('log', ['timeEvent', {cursorType: cursorType, Block: Block, Trial: Trial, Target: Target, Amplitude: distance, width: width[parameter[Trial - 1].(widthIndex+1)], R: Ratio[parameter[Trial - 1].ratioIndex], D:Density[parameter[Trial - 1].densityIndex], time: time, errors: incorrectCount}]);
+                $(this).trigger('log', ['timeEvent', {cursorType: cursorType, Block: Block, Trial: Trial, Target: Target, Amplitude: distance, width: width[parameter[Trial - 1].widthIndex], R: Ratio[parameter[Trial - 1].ratioIndex], D:Density[parameter[Trial - 1].densityIndex], time: time, errors: incorrectCount}]);
                 startTime = endTime;
                 incorrectCount = 0;
                 newTarget();
