@@ -67,9 +67,6 @@ function logEvent(event, customName, customInfo) {
   var info = JSON.stringify(infoObj);
 
   if (ENABLE_CONSOLE_LOGGING) {
-
-  		console.log(infoObj["cursorType"]);//ok
-      console.log(JSON.stringify(infoObj["cursorType"]));
       console.log(uid, time, name, info, LOG_VERSION);
   }
   if (ENABLE_NETWORK_LOGGING) {
