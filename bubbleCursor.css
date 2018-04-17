@@ -1,0 +1,96 @@
+body {
+    overflow: hidden;
+}
+.canvas {
+    pointer-events: none;
+    position: absolute;
+    background-color: transparent;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+    z-index: 2;
+}
+
+.title {
+    pointer-events: none;
+    z-index: 3;
+    background-color: transparent;
+}
+
+.circle {
+    border-radius: 50%;
+    background-color: grey;
+}
+
+.infoBar {
+    display: flex;
+    width: 100%;
+    height: 10%;
+    align-self: flex-start;
+    justify-content: left;
+    align-items: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.homeExperiment {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleExperiment {
+    display: flex;
+    width: 45%;
+    height: 10%;
+    background-color: #78a4b2;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.instructionExperiment {
+    display: flex;
+    margin-top: 0.5%;
+    width: 45%;
+    height: 40%;
+    background-color: #27b2b2;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.startExperiment {
+    display: flex;
+    width: 45%;
+    height: 10%;
+    margin-top: 0.5%;
+    background-color: #096cfa;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.largeText {
+    font-size: 1.3em;
+    font-family: helvetica;
+    margin: 5%;
+}
+
+.smallText {
+    font-size: 1em;
+    font-family: helvetica;
+    margin: 5%;
+}
+
+.titleText {
+    font-size: 1em;
+    font-family: helvetica;
+}
+
+
