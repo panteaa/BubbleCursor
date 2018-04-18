@@ -160,12 +160,6 @@ function createCircle(circleType, width, height, left, top) {
             else if(circleType == "targetCircle"){
                 endTime = new Date().getTime();
                 var time = endTime - startTime;
-                // console.log(widthIndex);
-                console.log(widthn[parameter[Trial - 1]]);//un
-                console.log(Trial-1);//0
-                 console.log(parameter[Trial - 1]);//obj
-                 console.log(parameter[Trial - 1].widthIndex);//0
-                console.log(widthn[parameter[Trial - 1].widthIndex]);//un
                 $(this).trigger('log', ['timeEvent', {cursorType: cursorType, Block: Block, Trial: Trial, Target: Target, Amplitude: distance, width: widthn[parameter[Trial - 1].widthIndex], R: Ratio[parameter[Trial - 1].ratioIndex], D:Density[parameter[Trial - 1].densityIndex], time: time, errors: incorrectCount}]);
                 startTime = endTime;
                 incorrectCount = 0;
