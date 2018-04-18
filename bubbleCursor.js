@@ -163,6 +163,7 @@ function createCircle(circleType, width, height, left, top) {
                 // console.log(widthIndex);
                 console.log(width[parameter[Trial - 1]]);
                 console.log(Trial-1);
+                 console.log(parameter[Trial - 1]);
                 console.log(width[parameter[Trial - 1].widthIndex]);
                 $(this).trigger('log', ['timeEvent', {cursorType: cursorType, Block: Block, Trial: Trial, Target: Target, Amplitude: distance, width: width[parameter[Trial - 1].widthIndex], R: Ratio[parameter[Trial - 1].ratioIndex], D:Density[parameter[Trial - 1].densityIndex], time: time, errors: incorrectCount}]);
                 startTime = endTime;
