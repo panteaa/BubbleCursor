@@ -13,10 +13,10 @@ function newTarget() {
     var ratioIndex = parameter[Trial - 1].ratioIndex;
     $('.circle').remove();
     if (Target == 1) {
-        var documentCenter_x = (documentWidth - width[widthIndex]) / 2;
-        var documentCenter_y = (documentHeight - width[widthIndex]) / 2;
-        currentRadius = width[widthIndex] / 2;
-        createCircle("startCircle", width[widthIndex], width[widthIndex], documentCenter_x, documentCenter_y);
+        var documentCenter_x = (documentWidth - widthn[widthIndex]) / 2;
+        var documentCenter_y = (documentHeight - widthn[widthIndex]) / 2;
+        currentRadius = widthn[widthIndex] / 2;
+        createCircle("startCircle", widthn[widthIndex], widthn[widthIndex], documentCenter_x, documentCenter_y);
         currentCircles = $('.circle');
         selectedCircle = 0;
         previousCircle = 0;
@@ -51,7 +51,7 @@ function newBlock() {
     if (Block <= 4) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         parameter = []
-        for (var i = 0; i < width.length; i++) {
+        for (var i = 0; i < widthn.length; i++) {
             for (var j = 0; j < Ratio.length; j++) {
                 for (var k = 0; k < Density.length; k++) {
                     var indices = {widthIndex: i, ratioIndex: j, densityIndex: k};
@@ -72,7 +72,7 @@ function newBlock() {
             if (circle.classList.contains('correct') && mouseMoved) {
                 endTime = new Date().getTime();
                 var time = endTime - startTime;
-                $(this).trigger('log', ['timeEvent', {cursorType: cursorType, Block: Block, Trial: Trial, Target: Target, Amplitude: distance, width: width[parameter[Trial - 1].widthIndex], R: Ratio[parameter[Trial - 1].ratioIndex], D:Density[parameter[Trial - 1].densityIndex], time: time, errors: incorrectCount}]);
+                $(this).trigger('log', ['timeEvent', {cursorType: cursorType, Block: Block, Trial: Trial, Target: Target, Amplitude: distance, width: widthn[parameter[Trial - 1].widthIndex], R: Ratio[parameter[Trial - 1].ratioIndex], D:Density[parameter[Trial - 1].densityIndex], time: time, errors: incorrectCount}]);
                 startTime = endTime;
                 incorrectCount = 0;
                 newTarget();
@@ -127,7 +127,7 @@ $(document).ready(function() {
         context.globalAlpha = 0.1;
         canvas.width = documentWidth;
         canvas.height = documentHeight;
-        var indices = {widthIndex: parseInt(width.length * Math.random()), ratioIndex: parseInt(Ratio.length * Math.random()), densityIndex: parseInt(Density.length * Math.random())};
+        var indices = {widthIndex: parseInt(widthn.length * Math.random()), ratioIndex: parseInt(Ratio.length * Math.random()), densityIndex: parseInt(Density.length * Math.random())};
         parameter.splice(0, 0, indices);
         newBlock();
     });
@@ -161,12 +161,12 @@ function createCircle(circleType, width, height, left, top) {
                 endTime = new Date().getTime();
                 var time = endTime - startTime;
                 // console.log(widthIndex);
-                console.log(width[parameter[Trial - 1]]);
-                console.log(Trial-1);
-                 console.log(parameter[Trial - 1]);
-                 console.log(parameter[Trial - 1].widthIndex)
-                console.log(width[parameter[Trial - 1].widthIndex]);
-                $(this).trigger('log', ['timeEvent', {cursorType: cursorType, Block: Block, Trial: Trial, Target: Target, Amplitude: distance, width: width[parameter[Trial - 1].widthIndex], R: Ratio[parameter[Trial - 1].ratioIndex], D:Density[parameter[Trial - 1].densityIndex], time: time, errors: incorrectCount}]);
+                console.log(widthn[parameter[Trial - 1]]);//un
+                console.log(Trial-1);//0
+                 console.log(parameter[Trial - 1]);//obj
+                 console.log(parameter[Trial - 1].widthIndex);//0
+                console.log(widthn[parameter[Trial - 1].widthIndex]);//un
+                $(this).trigger('log', ['timeEvent', {cursorType: cursorType, Block: Block, Trial: Trial, Target: Target, Amplitude: distance, width: widthn[parameter[Trial - 1].widthIndex], R: Ratio[parameter[Trial - 1].ratioIndex], D:Density[parameter[Trial - 1].densityIndex], time: time, errors: incorrectCount}]);
                 startTime = endTime;
                 incorrectCount = 0;
                 newTarget();
@@ -194,10 +194,10 @@ function createTarget(widthIndex, densityIndex, ratioIndex) {
     distance = Amplitude[shuffle([0, 0, 0, 1, 1, 1, 2, 2, 2]).pop()];
 
     var edgeCircles = [[1, 1], [-1, -1]];
-    var effectiveWidth = Ratio[ratioIndex] * width[widthIndex];
+    var effectiveWidth = Ratio[ratioIndex] * widthn[widthIndex];
 
-    var X = documentCenter_x - width[widthIndex] / 2 + Math.cos(randomAngle) * distance;
-    var Y = documentCenter_y - width[widthIndex] / 2 + Math.sin(randomAngle) * distance;
+    var X = documentCenter_x - widthn[widthIndex] / 2 + Math.cos(randomAngle) * distance;
+    var Y = documentCenter_y - widthn[widthIndex] / 2 + Math.sin(randomAngle) * distance;
 
     previous_x = documentCenter_x;
     previous_y = documentCenter_y;
@@ -205,10 +205,10 @@ function createTarget(widthIndex, densityIndex, ratioIndex) {
     documentCenter_y = Y;
 
     for (var i = 0; i < edgeCircles.length; i++) {
-        createCircle("distracterCircle", width[widthIndex], width[widthIndex], X + edgeCircles[i][0] * Math.cos(randomAngle) * (width[widthIndex] / 2 + effectiveWidth), Y + edgeCircles[i][1] * Math.sin(randomAngle) * (width[widthIndex] / 2 + effectiveWidth));
-        createCircle("distracterCircle", width[widthIndex], width[widthIndex], X + edgeCircles[i][0] * Math.cos(randomAngle + Math.PI / 2) * (width[widthIndex] / 2 + effectiveWidth), Y + edgeCircles[i][1] * Math.sin(randomAngle + Math.PI / 2) * (width[widthIndex] / 2 + effectiveWidth));
+        createCircle("distracterCircle", widthn[widthIndex], widthn[widthIndex], X + edgeCircles[i][0] * Math.cos(randomAngle) * (widthn[widthIndex] / 2 + effectiveWidth), Y + edgeCircles[i][1] * Math.sin(randomAngle) * (widthn[widthIndex] / 2 + effectiveWidth));
+        createCircle("distracterCircle", widthn[widthIndex], widthn[widthIndex], X + edgeCircles[i][0] * Math.cos(randomAngle + Math.PI / 2) * (widthn[widthIndex] / 2 + effectiveWidth), Y + edgeCircles[i][1] * Math.sin(randomAngle + Math.PI / 2) * (widthn[widthIndex] / 2 + effectiveWidth));
     }
-    createCircle("targetCircle", width[widthIndex], width[widthIndex], X, Y);
+    createCircle("targetCircle", widthn[widthIndex], widthn[widthIndex], X, Y);
     createDistracters(widthIndex, densityIndex, effectiveWidth, randomAngle);
 }
 
@@ -222,7 +222,7 @@ function createDistracters(widthIndex, densityIndex, effectiveWidth, randomAngle
             while (collision) {
                 collision = false;
                 var dist = documentWidth / 2;
-                dist = Math.max(dist * Math.random(), width[widthIndex]);
+                dist = Math.max(dist * Math.random(), widthn[widthIndex]);
                 X = previous_x + Math.cos(randomAngle - Math.PI * 2 / (2 * 18) + (i - 0.5) * Math.PI * 2 / 18 + Math.random() * Math.PI * 2 / 18) * dist;
                 Y = previous_y + Math.sin(randomAngle - Math.PI * 2 / (2 * 18) + (i - 0.5) * Math.PI * 2 / 18 + Math.random() * Math.PI * 2 / 18) * dist;
                 for (var i = 0; i < circles.length; i++) {
@@ -232,7 +232,7 @@ function createDistracters(widthIndex, densityIndex, effectiveWidth, randomAngle
                     }
                 }
             }
-            createCircle("distracterCircle", width[widthIndex], width[widthIndex], X, Y);
+            createCircle("distracterCircle", widthn[widthIndex], widthn[widthIndex], X, Y);
         }
     }
 }
@@ -278,7 +278,7 @@ function findRadius(X, Y) {
 var documentWidth;
 var documentHeight;
 var Amplitude = [256/3, 512/3, 768/3];
-var width = [8, 16, 32];
+var widthn = [8, 16, 32];
 var Ratio = [1.33, 2, 3];
 var Density = [0, 2, 4];
 // var Density = [0, 0.5, 1];
