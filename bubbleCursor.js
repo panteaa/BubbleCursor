@@ -160,7 +160,7 @@ function createCircle(circleType, width, height, left, top) {
             else if(circleType == "targetCircle"){
                 endTime = new Date().getTime();
                 var time = endTime - startTime;
-                console.log(widthIndex]);
+                console.log(widthIndex);
                 console.log(width[parameter[Trial - 1]]);
                 console.log(Trial-1);
                 console.log(width[parameter[Trial - 1].widthIndex]);
